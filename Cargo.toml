@@ -1,0 +1,10 @@
+[package]
+name = "adventofcode"
+version = "0.0.1"
+authors = ["Erick Sauceda <easauceda@gmail.com>"]
+
+[dependencies]
+
+log = "0.3"
+env_logger = "0.4.3"
+reqwest = "0.8.1"
