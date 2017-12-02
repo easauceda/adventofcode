@@ -6,4 +6,4 @@ My attempts at solving the [advent of code 2017](http://adventofcode.com/2017) c
 
 1. Clone this repository
 2. Add inputs for puzzles by creating a text file for each input: `inputs/{DAY}.txt`
-3. `cargo run`
+3. `cargo run {DAY}`
