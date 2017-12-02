@@ -27,6 +27,7 @@ fn main() {
 
     let result = match day {
         "1" => day_one::sum(util::get_input(day)),
+        "2" => day_two::solve(util::get_input(day)),
         _ => {
             println!("Day has not been implemented.");
             std::process::exit(-1);
