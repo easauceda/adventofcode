@@ -8,3 +8,4 @@ authors = ["Erick Sauceda <easauceda@gmail.com>"]
 log = "0.3"
 env_logger = "0.4.3"
 reqwest = "0.8.1"
+clap = "2.8.2"

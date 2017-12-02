@@ -1,4 +1,4 @@
-pub fn sum(input : String) -> u32{
+pub fn sum(input: String) -> u32{
     let mut sum = 0;
     // Convert the input string into a vector of chars
     let chars : Vec<_> = input.chars().collect();
