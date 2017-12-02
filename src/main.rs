@@ -3,8 +3,9 @@ extern crate log;
 extern crate env_logger;
 extern crate clap;
 
-mod day_one;
 mod util;
+mod day_one;
+mod day_two;
 
 use clap::{App, Arg};
 
