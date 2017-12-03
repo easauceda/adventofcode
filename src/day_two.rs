@@ -52,5 +52,25 @@ fn diff(row: &Vec<u32>) -> u32 {
 }
 
 fn even(row: &Vec<u32>) -> u32 {
-    unimplemented!();
+    // For each number, search the row for a number than evenly divides into it
+    //if found, break and return the result
+    for x in 0..row.len() {
+        for y in (x+1)..row.len(){
+            let a = &row[x];
+            let b = &row[y];
+
+            debug!("Value for A: {}", a);
+            debug!("Value for B: {}", b);
+
+            if a % b == 0 {
+                debug!("Returning: {}", (a/b));
+                return a / b;
+            } else if b % a == 0 {
+                debug!("Returning: {}", (b/a));
+                return b / a;
+            }
+        }
+    }
+    debug!("Should not reach this line");
+    return 1;
 }
