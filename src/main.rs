@@ -26,7 +26,7 @@ fn main() {
     }
 
     let result = match day {
-        "1" => day_one::sum(util::get_input(day)),
+        "1" => day_one::solve(util::get_input(day)),
         "2" => day_two::solve(util::get_input(day)),
         _ => {
             println!("Day has not been implemented.");
@@ -34,5 +34,5 @@ fn main() {
         }
     };
     
-    println!("Day {} puzzle solution: {}", day, result);
+    println!("Day {} puzzle solutions:\n - Part 1: {}\n - Part 2: {}", day, result.0, result.1);
 }
