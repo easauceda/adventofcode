@@ -1,4 +1,4 @@
-pub fn solve(input: String) -> (u32, u32){
+pub fn solve(input: String) -> (i32, i32){
     let mut sum = 0;
     // Convert the input string into a vector of chars
     let chars : Vec<_> = input.chars().collect();
@@ -29,5 +29,5 @@ pub fn solve(input: String) -> (u32, u32){
         }
         debug!("===========");
     }
-    return (sum, sum);
+    return (sum as i32, sum as i32);
 }

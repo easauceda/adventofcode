@@ -1,4 +1,4 @@
-pub fn solve(input: String) -> (u32, u32){
+pub fn solve(input: String) -> (i32, i32){
     debug!("Input is: {}", input);
 
     let mut sum = 0;
@@ -17,15 +17,15 @@ pub fn solve(input: String) -> (u32, u32){
     return (sum, even_sum);
 }
 
-fn parse(input: String) -> Vec<Vec<u32>> {
+fn parse(input: String) -> Vec<Vec<i32>> {
     let mut rows = Vec::new();
     let input_lines = input.split("\n");
 
     for line in input_lines {
-        let mut row : Vec<u32> = Vec::new();
+        let mut row : Vec<i32> = Vec::new();
 
         for val in line.split_whitespace(){
-            row.push(val.parse::<u32>().unwrap());
+            row.push(val.parse::<i32>().unwrap());
         }
 
         rows.push(row);
@@ -34,7 +34,7 @@ fn parse(input: String) -> Vec<Vec<u32>> {
     return rows;
 }
 
-fn diff(row: &Vec<u32>) -> u32 {
+fn diff(row: &Vec<i32>) -> i32 {
     let mut smallest = &row[0];
     let mut largest = &row[0];
 
@@ -51,7 +51,7 @@ fn diff(row: &Vec<u32>) -> u32 {
     return largest - smallest;
 }
 
-fn even(row: &Vec<u32>) -> u32 {
+fn even(row: &Vec<i32>) -> i32 {
     // For each number, search the row for a number than evenly divides into it
     //if found, break and return the result
     for x in 0..row.len() {
