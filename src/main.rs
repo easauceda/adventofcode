@@ -28,6 +28,7 @@ fn main() {
         "1" => day::one::solve(util::get_input(day)),
         "2" => day::two::solve(util::get_input(day)),
         "3" => day::three::solve(util::get_input(day)),
+        "4" => day::four::solve(),
         _ => {
             println!("Day has not been implemented.");
             std::process::exit(-1);
