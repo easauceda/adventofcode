@@ -51,91 +51,15 @@ fn get_coordinates(target: i32) -> (i32, i32){
     return (x, y);
 }
 
-fn get_next_value(input: i32) -> i32 {
-    let mut row_index = 1;
-    let mut coordinates = (1,0);
-    let mut spiral_struct : HashMap<(i32, i32), i32> = HashMap::new();
-
-    //insert initial value
-    spiral_struct.insert((0,0), 1);
-
-    loop {
-        let mut val : i32 = 0;
-
-        if val > input {
-            return val;
-        }
-
-        while coordinates != (row_index, row_index) {
-            val = find_sum(&coordinates, &mut spiral_struct);
-            spiral_struct.insert(coordinates, val);
-
-            if val > input {
-                return val;
-            }
-
-            debug!("Inserting {} at {},{}", val, coordinates.0, coordinates.1);
-            debug!("{},{}", coordinates.0, coordinates.1);
-            coordinates = (coordinates.0, coordinates.1 + 1);
-        }
-
-        while coordinates != (-row_index, row_index) {
-            val = find_sum(&coordinates, &mut spiral_struct);
-            spiral_struct.insert(coordinates, val);
-
-            if val > input {
-                return val;
-            }
-
-            debug!("Inserting {} at {},{}", val, coordinates.0, coordinates.1);
-            debug!("Moving left");
-            debug!("{},{}", coordinates.0, coordinates.1);
-            coordinates = (coordinates.0 - 1, coordinates.1);
-        }
-
-        while coordinates != (-row_index, -row_index) {
-            val = find_sum(&coordinates, &mut spiral_struct);
-            spiral_struct.insert(coordinates, val);
-
-            if val > input {
-                return val;
-            }
-
-            debug!("Inserting {} at {},{}", val, coordinates.0, coordinates.1);
-            debug!("Moving down");
-            debug!("{},{}", coordinates.0, coordinates.1);
-            coordinates = (coordinates.0, coordinates.1 - 1);
-        }
-
-        while coordinates != (row_index, -row_index) {
-            val = find_sum(&coordinates, &mut spiral_struct);
-            spiral_struct.insert(coordinates, val);
-
-            if val > input {
-                return val;
-            }
-            
-            debug!("Inserting {} at {},{}", val, coordinates.0, coordinates.1);
-            debug!("Moving right");
-            coordinates = (coordinates.0 + 1, coordinates.1);
-            debug!("{},{}", coordinates.0, coordinates.1);
-        }
-
-        val = find_sum(&coordinates, &mut spiral_struct);
-        spiral_struct.insert(coordinates, val);
-        row_index += 1;
-        coordinates = (coordinates.0 + 1, coordinates.1);
-    }
-}
-
 fn get_next_sum_fixed(input : i32) -> i32 {
     let mut row_index = 1;
     let mut coordinates = (1,0);
     let mut spiral_struct : HashMap<(i32, i32), i32> = HashMap::new();
 
-    //insert initial value
+    //Initial Value
     spiral_struct.insert((0,0), 1);
 
+    // Initial Direction
     let mut direction = "up";
 
     let mut val = 0;
@@ -151,7 +75,7 @@ fn get_next_sum_fixed(input : i32) -> i32 {
         if coordinates == (row_index, -row_index) {
 
             coordinates = (coordinates.0 + 1, coordinates.1);
-            
+
             val = find_sum(&coordinates, &mut spiral_struct);
             spiral_struct.insert(coordinates, val);
 
