@@ -4,9 +4,7 @@ extern crate env_logger;
 extern crate clap;
 
 mod util;
-mod day_one;
-mod day_two;
-mod day_three;
+mod day;
 
 use clap::{App, Arg};
 
@@ -27,9 +25,9 @@ fn main() {
     }
 
     let result = match day {
-        "1" => day_one::solve(util::get_input(day)),
-        "2" => day_two::solve(util::get_input(day)),
-        "3" => day_three::solve(util::get_input(day)),
+        "1" => day::one::solve(util::get_input(day)),
+        "2" => day::two::solve(util::get_input(day)),
+        "3" => day::three::solve(util::get_input(day)),
         _ => {
             println!("Day has not been implemented.");
             std::process::exit(-1);
